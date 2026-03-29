@@ -1,11 +1,13 @@
-import prompt
-import random
 import math
+import random
 
+import prompt
 
 times = 2
 
+
 def brain_even(name: str):
+
     print('Answer "yes" if the number is even, otherwise answer "no".')
     i = 0
     while i < times + 1:
@@ -15,13 +17,15 @@ def brain_even(name: str):
             if answer == 'yes':
                 print('Correct!')
             else:
-                print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'yes\'.\nLet\'s try again, {name}!')
+                print('\'no\' is wrong answer ;(. Correct answer was \'yes\'.')
+                print(f'Let\'s try again, {name}!')
                 break
         else:
             if answer == 'no':
                 print('Correct!')
             else:
-                print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'no\'.\nLet\'s try again, {name}!')
+                print('\'yes\' is wrong answer ;(. Correct answer was \'no\'.')
+                print(f'Let\'s try again, {name}!')
                 break
         if i == times:
             print(f'Congratulations, {name}!')
@@ -33,10 +37,11 @@ def brain_calc(name: str):
     operations = ['+', '-', '*']
     i = 0
     while i < times + 1:
-        operation_choice = random.randint(0,2)
+        operation_choice = random.randint(0, 2)
         number1 = random.randint(1, 100)
         number2 = random.randint(1, 100)
-        answer = prompt.string(f'Question: {number1} {operations[operation_choice]} {number2}\nYour answer: ')
+        print(f'Question: {number1} {operations[operation_choice]} {number2}')
+        answer = prompt.string('Your answer: ')
         if operations[operation_choice] == '+':
             ground_truth = number1 + number2
         elif operations[operation_choice] == '-':
@@ -47,7 +52,8 @@ def brain_calc(name: str):
         if ground_truth == int(answer):
             print('Correct!')
         else:
-            print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.\nLet\'s try again, {name}!')
+            print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.')
+            print(f'Let\'s try again, {name}!')
             break
 
         if i == times:
@@ -67,7 +73,8 @@ def brain_gcd(name: str):
         if ground_truth == int(answer):
             print('Correct!')
         else:
-            print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.\nLet\'s try again, {name}!')
+            print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.')
+            print(f'Let\'s try again, {name}!')
             break
 
         if i == times:
@@ -89,14 +96,16 @@ def brain_progression(name: str):
         else:
             progression = progression[:10]
             progression_str = [str(n) for n in progression]
-            changed_index = random.randint(0, len(progression_str)-1)
+            changed_index = random.randint(0, len(progression_str) - 1)
             progression_str[changed_index] = '..'
-            answer = prompt.string(f'Question: {' '.join(progression_str)}\nYour answer: ')
+            print(f'Question: {' '.join(progression_str)}')
+            answer = prompt.string('Your answer: ')
             ground_truth = progression[changed_index]
             if ground_truth == int(answer):
                 print('Correct!')
             else:
-                print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.\nLet\'s try again, {name}!')
+                print(f'\'{answer}\' is wrong answer ;(. Correct answer was \'{ground_truth}\'.')
+                print(f'Let\'s try again, {name}!')
                 break
 
             if i == times:
