@@ -1,5 +1,5 @@
 from brain_games.cli import welcome_user
-from brain_games.scripts.games.brain_games_list import brain_progression
+from brain_games.scripts.brain_games_list import brain_progression
 
 
 def main():

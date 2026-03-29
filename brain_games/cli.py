@@ -8,6 +8,7 @@ def welcome_user():
     print(f'Hello, {name}!')
     return name
 
+
 def is_prime(n: int):
     if n < 2:
         return False
