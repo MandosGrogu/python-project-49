@@ -2,6 +2,7 @@ import math
 import random
 
 import prompt
+from brain_games.cli import is_prime
 
 times = 2
 
@@ -111,3 +112,32 @@ def brain_progression(name: str):
             if i == times:
                 print(f'Congratulations, {name}!')
             i += 1
+
+
+def brain_prime(name: str):
+    
+    print('Answer "yes" if given number is prime. Otherwise answer "no".')
+    i = 0
+    while i < times + 1:
+        number = random.randint(1, 100)
+        print(f'Question: {number}')
+        answer = prompt.string('Your answer: ')
+        ground_truth = is_prime(number)
+        if ground_truth == True:
+            if answer == 'yes':
+                print('Correct!')
+            else:
+                print('\'no\' is wrong answer ;(. Correct answer was \'yes\'.')
+                print(f'Let\'s try again, {name}!')
+                break
+        else:
+            if answer == 'yes':
+                print('\'yes\' is wrong answer ;(. Correct answer was \'no\'.')
+                print(f'Let\'s try again, {name}!')
+                break
+            else:
+                print('Correct!')
+
+        if i == times:
+            print(f'Congratulations, {name}!')
+        i += 1
